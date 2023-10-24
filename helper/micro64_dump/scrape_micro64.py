@@ -5,7 +5,7 @@ Scrape metadata from Micro64
 from bs4 import BeautifulSoup
 from datetime import datetime
 from os import makedirs
-from os.path import abspath, expanduser
+from os.path import abspath, expanduser, isdir
 from sys import argv, stdout
 from urllib.request import urlopen
 
@@ -57,6 +57,66 @@ if __name__ == "__main__":
             releases = [('NTSC-J', 'NUS-NDAJ-JPN', '10/08/01')]
         elif row_data['Title'] == 'Dezaemon 3D':
             releases = [('NTSC-J', 'NUS-CDZJ-JPN', '26/06/98')]
+        elif row_data['Title'] == 'Doom 64':
+            releases = [('NTSC-U', 'NUS-NDME-USA', '04/04/97'), ('PAL', 'NUS-NDMP-UKV', '02/12/97'), ('NTSC-J', 'NUS-NDMJ-JPN', '01/08/97')]
+        elif row_data['Title'] == 'Doraemon: Nobita to Mittsu no Seirei Ishi':
+            releases = [('NTSC-J', 'NUS-NDRJ-JPN', '21/03/97')]
+        elif row_data['Title'] == 'Doraemon 2: Nobita to Hikari no Shinden':
+            releases = [('NTSC-J', 'NUS-ND2J-JPN', '11/12/98')]
+        elif row_data['Title'] == 'Doraemon 3: Nobita no Machi SOS!':
+            releases = [('NTSC-J', 'NUS-N3DJ-JPN', '28/07/00')]
+        elif row_data['Title'] == 'Eikō no Saint Andrews':
+            releases = [('NTSC-J', 'NUS-NSTJ-JPN', '29/11/96')]
+        elif row_data['Title'] == 'Famista 64':
+            releases = [('NTSC-J', 'NUS-NFSJ-JPN', '28/11/97')]
+        elif row_data['Title'] == 'Fushigi no Dungeon: Fūrai no Shiren 2: Oni Shūrai! Siren-jō!':
+            releases = [('NTSC-J', 'NUS-NSIJ-JPN', '27/12/00')]
+        elif row_data['Title'] == 'Getter Love!!':
+            releases = [('NTSC-J', 'NUS-NGLJ-JPN', '04/12/98')]
+        elif row_data['Title'] == 'Goemon Mononoke Sugoroku':
+            releases = [('NTSC-J', 'NUS-NGPJ-JPN', '25/12/99')]
+        elif row_data['Title'] == 'Hamster Monogatari 64':
+            releases = [('NTSC-J', 'NUS-NHSJ-JPN', '06/04/01')]
+        elif row_data['Title'] == 'Heiwa Pachinko World 64':
+            releases = [('NTSC-J', 'NUS-NHPJ-JPN', '28/11/97')]
+        elif row_data['Title'] == 'Ide Yōsuke no Mahjong Juku':
+            releases = [('NTSC-J', 'NUS-NIMJ-JPN', '21/04/00')]
+        elif row_data['Title'] == 'J-League Dynamite Soccer 64':
+            releases = [('NTSC-J', 'NUS-NDSJ-JPN', '05/09/97')]
+        elif row_data['Title'] == 'J-League Eleven Beat 1997':
+            releases = [('NTSC-J', 'NUS-NJEJ-JPN', '24/10/97')]
+        elif row_data['Title'] == 'J-League Live 64':
+            releases = [('NTSC-J', 'NUS-NJLJ-JPN', '28/03/97')]
+        elif row_data['Title'] == 'J-League Tactics Soccer':
+            releases = [('NTSC-J', 'NUS-NSJJ-JPN', '15/01/99')]
+        elif row_data['Title'] == 'Jangō Simulation Mahjong-dō 64':
+            releases = [('NTSC-J', 'NUS-NMAJ-JPN', '25/07/97')]
+        elif row_data['Title'] == 'Jikkyō GI Stable':
+            releases = [('NTSC-J', 'NUS-NGSJ-JPN', '28/04/99')]
+        elif row_data['Title'] == 'Jikkyō J. League: Perfect Striker':
+            continue # the serial exists for 'International Superstar Soccer 64': https://gamefaqs.gamespot.com/n64/944295-jikkyou-jleague-perfect-striker/data
+        elif row_data['Title'] == 'Jikkyō Powerful Pro Yakyū 4':
+            releases = [('NTSC-J', 'NUS-NP4J-JPN', '14/03/97')]
+        elif row_data['Title'] == 'Jikkyō Powerful Pro Yakyū 5':
+            releases = [('NTSC-J', 'NUS-NJ5J-JPN', '26/03/98')]
+        elif row_data['Title'] == 'Jikkyō Powerful Pro Yakyū 6':
+            releases = [('NTSC-J', 'NUS-NP6J-JPN', '25/03/99')]
+        elif row_data['Title'] == 'Jikkyō Powerful Pro Yakyū 2000':
+            releases = [('NTSC-J', 'NUS-NPAJ-JPN', '29/04/00')]
+        elif row_data['Title'] == 'Jikkyō Powerful Pro Yakyū Basic-ban 2001':
+            releases = [('NTSC-J', 'NUS-NPEJ-JPN', '29/03/01')]
+        elif row_data['Title'] == 'Jinsei Game 64':
+            releases = [('NTSC-J', 'NUS-NJGJ-JPN', '19/03/99')]
+        elif row_data['Title'] == 'Kira tto Kaiketsu! 64 Tanteidan':
+            releases = [('NTSC-J', 'NUS-N64J-JPN', '23/10/98')]
+        elif row_data['Title'] == 'Last Legion UX':
+            releases = [('NTSC-J', 'NUS-NLLJ-JPN', '28/03/99')]
+        elif row_data['Title'] == "Masters '98: Haruka Naru Augusta":
+            releases = [('NTSC-J', 'NUS-NM9J-JPN', '26/12/97')]
+        elif row_data['Title'] == 'New Japan Pro Wrestling: Tōhkon Road Brave Spirits':
+            releases = [('NTSC-J', 'NUS-NTOJ-JPN', '04/01/98')]
+        elif row_data['Title'] == 'New Japan Pro Wrestling: Tōhkon Road Brave Spirits 2, The Next Generation':
+            releases = [('NTSC-J', 'NUS-NT3J-JPN', '26/12/98')]
         elif row_data['Title'] == 'Sin and Punishment: Hoshi no Keishōsha':
             releases = [('NTSC-J', 'NUS-NGUJ-JPN', '21/11/00')]
         for region, serial, release_date_s in releases:
@@ -72,6 +132,7 @@ if __name__ == "__main__":
                     except:
                         release_date = str(int(release_date_s[6:]))
             game_path = '%s/%s' % (games_path, serial)
+            assert not isdir(game_path), "PATH EXISTS: %s" % game_path
             makedirs(game_path, exist_ok=True)
             curr_data = {
                 'title': row_data['Title'],
