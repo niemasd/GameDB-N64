@@ -42,7 +42,25 @@ if __name__ == "__main__":
                         releases.append((region, new_serial, release_date_s))
                 else:
                     releases.append((region, serial, release_date_s))
+        # manual fixes for missing serials
+        if row_data['Title'] == 'Choro Q 64 2: Hachamecha Grand Prix Race':
+            releases = [('NTSC-J', 'NUS-NCGJ-JPN', '24/12/99')]
+        elif row_data['Title'] == 'Chōkūkan Night: Pro Yakyū King':
+            releases = [('NTSC-J', 'NUS-NPKJ-JPN', '20/12/96')]
+        elif row_data['Title'] == 'Chōkūkan Night: Pro Yakyū King 2':
+            releases = [('NTSC-J', 'NUS-NP2J-JPN', '19/03/99')]
+        elif row_data['Title'] == 'Dance Dance Revolution Disney Dancing Museum':
+            releases = [('NTSC-J', 'NUS-NDFJ-JPN', '30/12/00')]
+        elif row_data['Title'] == 'Densha de Go! 64':
+            releases = [('NTSC-J', 'NUS-ND6J-JPN', '30/07/99')]
+        elif row_data['Title'] == 'Derby Stallion 64':
+            releases = [('NTSC-J', 'NUS-NDAJ-JPN', '10/08/01')]
+        elif row_data['Title'] == 'Dezaemon 3D':
+            releases = [('NTSC-J', 'NUS-CDZJ-JPN', '26/06/98')]
+        elif row_data['Title'] == 'Sin and Punishment: Hoshi no Keishōsha':
+            releases = [('NTSC-J', 'NUS-NGUJ-JPN', '21/11/00')]
         for region, serial, release_date_s in releases:
+            assert serial != '?', "MISSING SERIAL: %s\n%s" % (row_data['Title'], releases)
             if release_date_s is None or release_date_s == '??/??/??':
                 release_date = None
             else:
