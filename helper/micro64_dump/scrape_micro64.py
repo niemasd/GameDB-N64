@@ -128,17 +128,23 @@ if __name__ == "__main__":
                     release_date = datetime.strptime(release_date_s, '%d/%m/%Y').strftime('%Y-%m-%d')
                 except:
                     try:
-                        release_date = datetime.strptime(release_date_s, '%d/%m/%y').strftime('%Y-%m-%d')
+                        release_date = datetime.strptime(release_date_s, '%m/%d/%Y').strftime('%Y-%m-%d')
                     except:
                         try:
-                            release_date = datetime.strptime(release_date_s[3:], '%m/%y').strftime('%Y-%m')
+                            release_date = datetime.strptime(release_date_s, '%d/%m/%y').strftime('%Y-%m-%d')
                         except:
-                            tmp = int(release_date_s.split('/')[-1])
-                            if tmp < 30:
-                                tmp += 2000
-                            else:
-                                tmp += 1900
-                            release_date = str(tmp)
+                            try:
+                                release_date = datetime.strptime(release_date_s, '%m/%d/%y').strftime('%Y-%m-%d')
+                            except:
+                                try:
+                                    release_date = datetime.strptime(release_date_s[3:], '%m/%y').strftime('%Y-%m')
+                                except:
+                                    tmp = int(release_date_s.split('/')[-1])
+                                    if tmp < 30:
+                                        tmp += 2000
+                                    else:
+                                        tmp += 1900
+                                    release_date = str(tmp)
             game_path = '%s/%s' % (games_path, serial)
             assert not isdir(game_path), "PATH EXISTS: %s" % game_path
             makedirs(game_path, exist_ok=True)
