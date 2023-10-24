@@ -27,6 +27,8 @@ if __name__ == "__main__":
         for region, k1, k2 in [('NTSC-U', 'Product Code (NA)','NA Release'), ('PAL', 'Product Code (PAL)','PAL Release'), ('NTSC-J', 'Product Code (JP)','JP Release')]:
             if k1 in row_data:
                 serial = row_data[k1]
+                if serial == 'NUS-NZGE / NZLE-USA': # manual fix for Ocarina of Time (only one with different notation)
+                    serial = 'NUS-NZGE-USA / NZLE-USA'
                 if k2 in row_data:
                     release_date_s = row_data[k2]
                 else:
