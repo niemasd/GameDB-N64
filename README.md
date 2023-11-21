@@ -10,3 +10,6 @@ Nintendo 64, part of [GameDB](https://github.com/niemasd/GameDB).
 # Sources
 * [GameFAQs](https://gamefaqs.gamespot.com/)
 * [Micro-64](http://micro-64.com/database/masterlist.shtml)
+* [MobyGames](https://www.mobygames.com/)
+* [Nintendo64EVER](https://www.nintendo64ever.com/)
+* [Wikipedia](https://www.wikipedia.org/)
